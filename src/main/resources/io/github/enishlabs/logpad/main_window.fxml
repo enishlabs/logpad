@@ -29,6 +29,6 @@
         </MenuBar>
     </top>
     <center>
-        <TextArea BorderPane.alignment="CENTER"/>
+        <TextArea BorderPane.alignment="CENTER" editable="false"/>
     </center>
 </BorderPane>
