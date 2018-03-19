@@ -5,19 +5,21 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 public class LogpadApp extends Application
 {
-    private AnnotationConfigApplicationContext context;
     private Parent root;
+
+    public static void main(String[] args)
+    {
+        launch(LogpadApp.class, args);
+    }
 
     @Override
     public void init() throws Exception
     {
-        context = new AnnotationConfigApplicationContext(LogpadConfiguration.class);
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("main_window.fxml"));
-        fxmlLoader.setControllerFactory(context::getBean);
+        fxmlLoader.setControllerFactory(new LogpadControllerFactory());
         root = fxmlLoader.load();
     }
 
@@ -30,16 +32,4 @@ public class LogpadApp extends Application
 
         primaryStage.show();
     }
-
-    @Override
-    public void stop() throws Exception
-    {
-        context.close();
-    }
-
-    public static void main(String[] args)
-    {
-        launch(LogpadApp.class, args);
-    }
 }
-

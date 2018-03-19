@@ -3,7 +3,6 @@ package io.github.enishlabs.logpad;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextArea;
 import javafx.stage.FileChooser;
-import org.springframework.stereotype.Component;
 
 import java.io.File;
 import java.io.IOException;
@@ -11,7 +10,6 @@ import java.nio.file.Files;
 import java.util.List;
 
 
-@Component
 public class Controller
 {
     @FXML
